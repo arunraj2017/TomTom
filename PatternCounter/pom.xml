@@ -4,8 +4,8 @@
 	<groupId>com.tt.exercise.java</groupId>
 	<artifactId>PatternCounter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>PatternCounter Programming Exer</name>
-	<description>PatternCounter</description>
+	<name>PatternCounter</name>
+	<description>PatternCounter Programming Exer</description>
 
 	<properties>
 		<cucumber.version>1.2.5</cucumber.version>
