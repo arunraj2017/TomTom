@@ -1,3 +1,15 @@
+
+
+package com.tomtom.patterncounter.main;
+
+import java.util.Map;
+
+import com.tomtom.patterncounter.io.impl.ConsoleOutput;
+import com.tomtom.patterncounter.io.impl.KeyBoardInput;
+import com.tomtom.patterncounter.io.runner.IORunner;
+import com.tomtom.patterncounter.service.PatternCounterService;
+import com.tomtom.patterncounter.service.impl.PatternCounterServiceImpl;
+
 /***
  * PatternCounterRunner
  * This is the main class to run the application
@@ -12,28 +24,19 @@
  * 7. Run time exception with proper message is thrown if there occurs any exception scenarios
  * 8. IO and core logic are loosely coupled. IO wired via Dependency Injection and Service class uses Factory
  ***/
-
-package com.tomtom.patterncounter.main;
-
-import java.util.Map;
-
-import com.tomtom.patterncounter.io.impl.ConsoleOutput;
-import com.tomtom.patterncounter.io.impl.KeyBoardInput;
-import com.tomtom.patterncounter.io.runner.IORunner;
-import com.tomtom.patterncounter.service.PatternCounterService;
-import com.tomtom.patterncounter.service.impl.PatternCounterServiceImpl;
-
 public class PatternCounterRunner {
 
 	private static PatternCounterService patternCounterService;
 
 	public static void main(String[] args) {
 
+		/*inject Keyboard and console to IO runner*/
 		IORunner io = new IORunner(new KeyBoardInput(), new ConsoleOutput());
 		String inputs[] = io.getUserInputs();
 		patternCounterService = new PatternCounterServiceImpl();
 		Map<String, Integer> result = null;
 
+		/*Service call to find and return the distinct pattern*/
 		try {
 			result = patternCounterService.findPatternFromFile(inputs[0], inputs[1]);
 		} catch (Exception e) {
