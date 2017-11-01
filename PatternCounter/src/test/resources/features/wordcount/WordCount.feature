@@ -1,4 +1,4 @@
-Feature: Word Pattern Matcher
+Feature: Word Pattern Matcher integration test
   Counts occurrences of each unique word in the document
   1. User Enters a filename with location and 1 as pattern type
   2. User Enters a filename with path that has null value and 1 as pattern type

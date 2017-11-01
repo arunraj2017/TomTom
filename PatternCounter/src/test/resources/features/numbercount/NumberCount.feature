@@ -1,4 +1,4 @@
-Feature: Number Pattern Matcher
+Feature: Number Pattern Matcher integration test
   Counts occurrences of each unique numbers in the document
   1. User Enters a filename with location and 2 as pattern type
   2. User Enters a filename with path that has null value and 2 as pattern type
