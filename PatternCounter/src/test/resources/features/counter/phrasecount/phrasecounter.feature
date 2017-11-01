@@ -46,3 +46,15 @@ Feature: Phrase Counter Service Implementation
       | one two three                 | 1 |
       | two three four                | 1 |
     And check the size is 3 and last two words are skipped
+
+  Scenario: To check the case sensitiveness of the output
+    Given phrase counter service is initialized
+    And make sure the initial result is null
+    When an input text of "one two three one TWO three" and "filename.txt" is passed as input parameters
+    Then check the result is below
+      | PatternCounter filename.txt 3 |   |
+      | one two three                 | 1 |
+      | two three one                 | 1 |
+      | three one TWO                 | 1 |
+      | one TWO three                 | 1 |
+    And check the size is 5 and last two words are skipped

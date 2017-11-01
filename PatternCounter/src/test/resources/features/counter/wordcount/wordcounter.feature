@@ -34,3 +34,13 @@ Feature: Word counter service implementation
     And check the value is as expected
       | PatternCounter filename.txt 1 |   |
       | test                          | 3 |
+
+  Scenario: To test the case sensitiveness of input text
+    Given Word count service is properly wired
+    And result is reset
+    When a valid text with content "test TEST test" is passed with file name as "filename.txt" is passed
+    Then make sure the result is not empty
+    And check the value is as expected
+      | PatternCounter filename.txt 1 |   |
+      | test                          | 2 |
+      | TEST                          | 1 |
