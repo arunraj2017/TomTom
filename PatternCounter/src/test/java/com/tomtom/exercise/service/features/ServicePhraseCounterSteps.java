@@ -1,4 +1,4 @@
-package com.tomtom.exercise.features;
+package com.tomtom.exercise.service.features;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -13,7 +13,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class PhraseCounterSteps {
+public class ServicePhraseCounterSteps {
 
 	PatternCounterService service;
 	Map<String, Integer> output = null;
@@ -37,12 +37,19 @@ public class PhraseCounterSteps {
 		assertEquals(expected, output);
 		System.out.println("Service Returned result successfully");
 	}
-	
+
 	@Then("^expect an empty output$")
 	public void expect_an_empty_output() throws Throwable {
-	    assertEquals(0, output.size());
-	    System.out.println("Service Returned null map as expected");
+		assertEquals(0, output.size());
+		System.out.println("Service Returned null map as expected");
 	}
 
+	@Then("^expect output with words count having atleast three words and skips the rest$")
+	public void expect_output_with_words_count_having_atleast_three_words_and_skips_the_rest(DataTable arg1)
+			throws Throwable {
+		Map<String, Integer> expected = arg1.asMap(String.class, Integer.class);
+		assertEquals(expected, output);
+		System.out.println("Service Returned expected partial result successfully");
+	}
 
 }

@@ -10,13 +10,16 @@
  * 5. For Scenario 3 (Phrases) if there are not enough words for the last phrase, then that line is skipped
  * 6. Cucumber is used as tool for BDD and build tool is Maven
  * 7. Run time exception with proper message is thrown if there occurs any exception scenarios
+ * 8. IO and core logic are loosely coupled. IO wired via Dependency Injection and Service class uses Factory
  ***/
 
 package com.tomtom.exercise.main;
 
 import java.util.Map;
-import java.util.Scanner;
 
+import com.tomtom.exercise.io.impl.ConsoleOutput;
+import com.tomtom.exercise.io.impl.KeyBoardInput;
+import com.tomtom.exercise.io.runner.IORunner;
 import com.tomtom.exercise.service.PatternCounterService;
 import com.tomtom.exercise.service.impl.PatternCounterServiceImpl;
 
@@ -25,7 +28,9 @@ public class PatternCounterRunner {
 	private static PatternCounterService patternCounterService;
 
 	public static void main(String[] args) {
-		String inputs[] = getUserInputs();
+
+		IORunner io = new IORunner(new KeyBoardInput(), new ConsoleOutput());
+		String inputs[] = io.getUserInputs();
 		patternCounterService = new PatternCounterServiceImpl();
 		Map<String, Integer> result = null;
 
@@ -34,36 +39,9 @@ public class PatternCounterRunner {
 		} catch (Exception e) {
 			System.err.println("Run time exception occured :" + e);
 		}
+		
+		io.printResult(result);
 
-		if (result != null) {
-			printResults(result);
-		}
-
-	}
-
-	private static void printResults(Map<String, Integer> result) {
-		for (Map.Entry<String, Integer> entry : result.entrySet()) {
-			String key = entry.getKey().toString();
-			Integer value = entry.getValue();
-			if ((key != null) && (value == null)) {
-				System.out.println(key);
-			} else {
-				System.out.println(key + ", " + value);
-			}
-		}
-
-	}
-
-	private static String[] getUserInputs() {
-		String[] inputs = new String[2];
-		Scanner scanner = new Scanner(System.in);
-		for (int i = 0; i < 2; i++) {
-			inputs[i] = scanner.nextLine();
-		}
-		if (scanner != null) {
-			scanner.close();
-		}
-		return inputs;
 	}
 
 }

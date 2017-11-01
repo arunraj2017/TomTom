@@ -4,7 +4,7 @@ Feature: Word Pattern Matcher integration test
   2. User Enters a filename with path that has null value and 1 as pattern type
   3. User enters a filename with path that has only two words and 1 as pattern type
 
-  Scenario: User Enters a filename with location and 1 as pattern type
+  Scenario: User Enters a filename with calid input and 1 as pattern type
     Given service class is wired
     When user enters "src/test/resources/testfiles/goodfile.txt" as filename and "1" as pattern type
     Then expect the following results
