@@ -6,7 +6,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(glue={"com.tomtom.exercise"} ,features = { "src/test/resources/features"})
+@CucumberOptions(glue = { "com.tomtom.exercise" }, features = { "src/test/resources/features" }, format = {
+		"json:target/cucumber-report/cucumber.json" })
 public class CucumberRunner {
 
 }
