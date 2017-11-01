@@ -3,6 +3,9 @@ package com.tomtom.exercise.io.impl;
 import java.util.Scanner;
 
 import com.tomtom.exercise.io.IStandardInput;
+/**
+ * The standard input that supports the keyboard
+ * */
 
 public class KeyBoardInput implements IStandardInput {
 

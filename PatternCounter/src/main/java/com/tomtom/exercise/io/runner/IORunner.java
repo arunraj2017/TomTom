@@ -5,6 +5,12 @@ import java.util.Map;
 import com.tomtom.exercise.io.IStandardInput;
 import com.tomtom.exercise.io.IStandardOutput;
 
+
+/**
+ * IORunner<br>
+ * IORunner can take a standard input or standard output as constructor and execute it
+ *
+ */
 public class IORunner {
 
 	IStandardInput standardInput;
@@ -23,6 +29,10 @@ public class IORunner {
 		this.standardOutput = standardOutput;
 	}
 
+	/**
+	 * function to get the user inputs with given standard input specified
+	 * @return String[] user inputs
+	 */
 	public String[] getUserInputs() {
 		if (this.standardInput != null) {
 			return this.standardInput.getUserInputs();
@@ -31,6 +41,10 @@ public class IORunner {
 		}
 	}
 
+	/**
+	 * function to iterate over the given map and prints it in standard output specified
+	 * @param result Map&lt;String,Integer&gt;- The unique item as key and count as number
+	 */
 	public void printResult(Map<String, Integer> result) {
 		if (this.standardOutput != null) {
 			this.standardOutput.printOutput(result);

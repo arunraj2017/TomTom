@@ -6,6 +6,11 @@ import java.util.Map;
 import com.tomtom.exercise.pattern.counter.IPatternCounter;
 import com.tomtom.exercise.utils.PatternCounterUtils;
 
+/**
+ * Phrase Counter can get distinct count of combination of 3 consecutive words
+ * <br>
+ * Note: If the word count is less than 3 then that line is omitted 
+ */
 public class PhraseCounter implements IPatternCounter {
 	private static final Integer DIGIT_NBR = 3;
 

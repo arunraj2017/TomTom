@@ -13,7 +13,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class ServicePhraseCounterSteps {
+public class ServicePhraseCounterSpec {
 
 	PatternCounterService service;
 	Map<String, Integer> output = null;

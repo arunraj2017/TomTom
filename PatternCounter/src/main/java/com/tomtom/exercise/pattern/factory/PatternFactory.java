@@ -6,8 +6,25 @@ import com.tomtom.exercise.pattern.counter.impl.PhraseCounter;
 import com.tomtom.exercise.pattern.counter.impl.WordCounter;
 import com.tomtom.exercise.utils.PatternCounterUtils;
 
+/**
+ * Factory class that can return an instance of {@linkplain IPatternCounter}
+ * with respect to type of the pattern matcher
+ *
+ */
 public class PatternFactory {
 
+	/**
+	 * Return an instance of {@linkplain IPatternCounter}
+	 * @param type - type of pattern counter
+	 * @return {@linkplain IPatternCounter} instance
+	 * <br>
+	 * Presently supported pattern counters with type are:
+	 * <br>
+	 * type = 1 => {@link WordCounter}<br>
+	 * type = 2 => {@link NumberCounter}<br>
+	 * type = 3 => {@link PhraseCounter}<br>
+	 * 
+	 */
 	public IPatternCounter getPatternCounter(String type) {
 		IPatternCounter patternCounter = null;
 		if ((type == null) && PatternCounterUtils.isNumeric(type)) {

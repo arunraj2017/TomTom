@@ -39,7 +39,7 @@ public class PatternCounterRunner {
 		} catch (Exception e) {
 			System.err.println("Run time exception occured :" + e);
 		}
-		
+
 		io.printResult(result);
 
 	}

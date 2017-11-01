@@ -1,4 +1,4 @@
-package com.tomtom.exercise.counter.features;
+package com.tomtom.exercise.pattern.counter.features;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,7 +12,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class NumberCounterSteps {
+public class NumberCounterSpec {
 
 	IPatternCounter patternCounter = null;
 	Map<String, Integer> result = null;

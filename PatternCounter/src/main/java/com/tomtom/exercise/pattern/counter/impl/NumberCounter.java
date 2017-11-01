@@ -6,6 +6,13 @@ import java.util.Map;
 import com.tomtom.exercise.pattern.counter.IPatternCounter;
 import com.tomtom.exercise.utils.PatternCounterUtils;
 
+/**
+ * Number counter service that has the logic to split the input string, 
+ * identify unique numbers and gives the count of distinct numbers
+ * <br>
+ * Limitations: Decimal numbers are counted as string
+ *
+ */
 public class NumberCounter implements IPatternCounter {
 	private static final Integer DIGIT_NBR = 2;
 

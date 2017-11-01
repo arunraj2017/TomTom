@@ -1,9 +1,7 @@
-
 package com.tomtom.exercise.service.features;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
@@ -15,36 +13,35 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class ServiceWordCountSteps {
+public class ServiceNumberCountSpec {
 
 	PatternCounterService service;
 	Map<String, Integer> output = null;
 
-	@Given("^service class is wired$")
+	@Given("^check service class is wired$")
 	public void service_class_is_wired() {
 		this.service = new PatternCounterServiceImpl();
 		System.out.println("Service class is wired");
 		assertNotNull(service);
 	}
 
-	@When("^user enters \"([^\"]*)\" as filename and \"([^\"]*)\" as pattern type$")
-	public void user_enters_as_filename_and_as_pattern_type(String arg1, String arg2) throws Throwable {
-		System.out.println("User entered file name and type of pattern counter");
+	@When("^user Enters file name as \"([^\"]*)\" and \"([^\"]*)\" as input pattern type$")
+	public void user_Enters_file_name_as_and_as_input_pattern_type(String arg1, String arg2) throws Throwable {
+		System.out.println("User entered the file name and pattern counter");
 		output = service.findPatternFromFile(arg1, arg2);
 	}
 
-	@Then("^expect the following results$")
-	public void expect_the_following_results(DataTable arg1) throws Throwable {
+	@Then("^expect the following number count results$")
+	public void expect_the_following_number_count_results(DataTable arg1) throws Throwable {
 		Map<String, Integer> expected = arg1.asMap(String.class, Integer.class);
 		assertEquals(expected, output);
 		System.out.println("Service Returned result successfully");
-
 	}
 
-	@Then("^expect empty result$")
-	public void expect_empty_result() throws Throwable {
-		assertTrue(output.isEmpty());
-		System.out.println("Service Returned empty map as expected");
+	@Then("^expect empty output$")
+	public void expect_empty_output() throws Throwable {
+		assertEquals(0, output.size());
+		System.out.println("Service Returned empty as expected");
 	}
 
 }

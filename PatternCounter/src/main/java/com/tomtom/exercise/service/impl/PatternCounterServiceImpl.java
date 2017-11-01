@@ -7,6 +7,10 @@ import com.tomtom.exercise.pattern.factory.PatternFactory;
 import com.tomtom.exercise.service.PatternCounterService;
 import com.tomtom.exercise.utils.PatternCounterUtils;
 
+/**
+ * Pattern counter Service
+ *The service calls the pattern factory to get the instance of the matcher specified 
+ */
 public class PatternCounterServiceImpl implements PatternCounterService {
 	PatternFactory patternFactory = new PatternFactory();
 	IPatternCounter patternCounter;
