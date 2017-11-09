@@ -1,5 +1,5 @@
-# TomTom
-TomTom programmng exercise
+# Programming Exercise
+programmng exercise
 
 The submission is evaluated based on following:
 Proper use of object oriented design to ensure extendibility. As an example, how much would the design have to change if 10 new patterns were to be added?
